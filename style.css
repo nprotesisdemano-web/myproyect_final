@@ -1,0 +1,543 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@600&family=Poppins:wght@300;400;500&display=swap');
+
+body{
+    color: #0a6cf1;
+    font-family: 'Germania One', cursive;
+    line-height: 1.7;
+    background: linear-gradient(135deg, #0d47a1, #512da8);
+    margin: 0;
+    padding-top: 80px; /* ajustá según el alto de tu menú */
+}
+
+/* TITULOS */
+h1 {
+    font-family: 'Orbitron', sans-serif;
+    color: #ffffff;
+    text-align: center;
+    letter-spacing: 2px;
+    font-size: 42px; 
+    margin-bottom: 15px;
+    text-shadow:
+        0 0 8px #4CC2FF,
+        0 0 16px #4CC2FF,
+        0 0 32px #008CFF,
+        0 0 48px #008CFF;
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow:
+            0 0 6px #4CC2FF,
+            0 0 12px #4CC2FF,
+            0 0 24px #008CFF,
+            0 0 36px #008CFF;
+    }
+    to {
+        text-shadow:
+            0 0 8px #4CC2FF,
+            0 0 18px #4CC2FF,
+            0 0 38px #008CFF,
+            0 0 60px #008CFF;
+    }
+}
+
+h2,h3 {
+    font-family: 'Orbitron', sans-serif;
+    color: #deeef7;
+    text-align: center;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 5;
+    margin-top: 40px;   /* Espacio extra para separar del carrusel */
+    font-size: 30px; margin-bottom: 18px;
+    font-weight: 700;
+}
+p { color:aliceblue; margin-bottom: 30px; }
+.brand img { height: 70px; }
+
+html { 
+  scroll-behavior: smooth; }
+
+/* -------- IMPORT DE FUENTES E ICONOS -------- */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css');
+
+/* -------- SECCIONES -------- */
+section {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 40px 0; }
+
+/* -------- TARJETAS MODERNAS -------- */
+.card-modern,
+.texto,
+.objetivos,
+.funcionamientos,
+.conocimientos,
+.conclusion {
+  background: rgb(8, 118, 221);
+  padding: 20px;
+  border-radius: 18px;
+  border-left: 5px solid rgb(13, 224, 231); /* borde principal */
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+  transition: transform .25s ease, box-shadow .25s ease;
+  position: relative;
+  text-align: center;
+}
+
+/* HOVER con efecto moderno */
+.card-modern:hover,
+.texto:hover,
+.objetivos:hover,
+.funcionamientos:hover,
+.conocimientos:hover,
+.conclusion:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.18);
+}
+
+/* -------- ICONOS -------- */
+h2 i {
+  margin-right: 10px;
+  color: #42a5f5;
+}
+
+/* -------- TEXTO -------- */
+p, li {
+  font-size: 18px;
+  color: #ffffff;
+  line-height: 1.7;
+}
+
+ul {
+  padding-left: 20px;
+}
+
+/* -------- GRID PARA TARJETAS DOBLES -------- */
+#objetivos_funcionamiento,
+#conocimientos-aplicados {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+.introduccion,
+.objetivos,
+.funcionamientos,
+.conocimientos,
+.conclusion {
+  flex: 1 1 45%;
+}
+
+/* -------- RESPONSIVE -------- */
+@media (max-width: 768px) {
+  #objetivos_funcionamiento,
+  #conocimientos-aplicados {
+    flex-direction: column;
+  }
+}
+/*aca termina lo teorico*/
+
+ /*COMIENZO MENU*/
+.menu-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.671); /* cuadro celeste semitransparente */
+  padding: 10px 20px;
+  box-sizing: border-box;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+  display: flex;
+  justify-content: center;
+}
+
+.menu-container {
+  width: 90%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+}
+
+/* Logo */
+.brand img {
+  height: 50px; /* Ajusta el tamaño de la mano */
+  cursor: pointer;
+}
+.no-gif, .efecto:hover .gif{ display: flex; }
+.gif, .efecto:hover .no-gif{ display: none; }
+
+/* Menú de navegación */
+.menu-navegacion {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+  align-items: baseline;
+  margin: 0;
+  padding: 0;
+  flex-grow: 1; /* Ocupa espacio entre logo y botón */
+}
+
+.menu-navegacion > li {
+  position: relative;
+}
+
+.menu-navegacion > li > a {
+  text-decoration: none;
+  font-size: 18px;
+  color: #dff6ff;
+  padding: 10px 18px;
+  border-radius: 12px;
+  transition: 0.35s ease;
+  font-weight: 600;
+}
+
+/* Hover */
+.menu-navegacion > li > a:hover {
+  background: rgba(0, 190, 255, 0.18);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 0 10px #00eaff, 0 0 20px rgba(0, 230, 255, 0.6);
+  color: #ffffff;
+}
+
+/* Submenú */
+.menu-vertical {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background: rgba(0, 20, 50, 0.65);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(0, 183, 255, 0.4);
+  border-radius: 12px;
+  padding: 10px 0;
+  width: 200px;
+  display: none;
+  flex-direction: column;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.35);
+  animation: menuFade 0.25s ease;
+}
+
+.menu-navegacion li:hover .menu-vertical {
+  display: flex;
+}
+
+.menu-vertical li a {
+  display: block;
+  padding: 12px 15px;
+  color: #cfeaff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: 0.25s ease;
+}
+
+.menu-vertical li a:hover {
+  background: rgba(0, 166, 255, 0.25);
+  padding-left: 22px;
+  color: #ffffff;
+  text-shadow: 0 0 8px #00eaff;
+}
+
+/* Botón flecha */
+.flecha {
+  background-color: #007acc;
+  border: 2px solid #004f7c;
+  border-radius: 6px;
+  color: white;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 6px 12px;
+  transition: background-color 0.3s ease;
+}
+
+.flecha:hover {
+  background-color: #005f9e;
+}
+/*ACA TERMINA EL MENU*/
+
+/* =========================================================== */
+/* ===================== FLECHA MOSTRAR TEXTO ================= */
+/* =========================================================== */
+.flecha {
+background: rgba(255,255,255,0.2);
+border: none;
+padding: 10px 15px;
+border-radius: 10px;
+cursor: pointer;
+font-size: 20px;
+transition: 0.3s;
+   font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    animation: saltar 1s infinite;
+    color: white;
+}
+@keyframes saltar {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(8px); }
+}
+.flecha:hover {
+background: rgba(0,166,255,0.4);
+}
+
+#textoProyecto {
+padding: 40px;
+max-width: 900px;
+margin: auto;
+background: rgba(255,255,255,0.08);
+border-radius: 15px;
+backdrop-filter: blur(6px);
+}
+
+.highlight {
+color: #00aaff;
+font-weight: bold;
+}
+.lista-integrantes p {
+  font-size: 20px;
+  font-weight: 600;
+  color: rgb(211, 207, 207);
+  background: linear-gradient(100deg, #00aaff33, transparent);
+  padding: 5px 0;
+  border-radius: 4px;
+  text-align: center;
+}
+/*termina flecha*/
+
+/* TABLA */
+table{
+    color: white;
+    font-size: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    table-layout: fixed;
+    border-collapse: collapse;
+}
+
+/* -------- RESTO DE TU CSS -------- */
+/*EMPIEZA video*/
+#caja {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.video video {
+    max-width: 100%;
+    width: 640px;   /* tamaño base */
+    border-radius: 12px;
+}
+/*TERMIA video*/
+
+.seccion1{ font-size: 20px; }
+aside{
+    width: 20%;
+    float: right;
+    background-color: rgb(4, 0, 44);
+    height: 725px;
+}
+
+/* MENÚ BASE */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color:#061a5a;
+    padding: 10px 40px;
+}
+
+/*aca comienza el icnono de descarga*/
+.icono-mano {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  margin: 0 5px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  align-items: center;
+
+}
+
+.icono-mano svg {
+  width: 150%;
+  height: 150%;
+}
+
+.icono-mano:hover {
+  transform: rotate(-10deg) scale(1.1);
+  box-shadow: 0 0 15px #00ffff;
+}
+
+/*Comienza el carousel*/
+/* ----- CARRUSEL 3D MODERNO ----- */
+#Componentes {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+
+/* Contenedor */
+.carousel-container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    perspective: 1200px;
+    margin: 0 auto;
+}
+
+.carousel {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+}
+
+/* Tarjetas */
+.item {
+    position: absolute;
+    width: 300px;
+    height: 380px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.35);
+    border: 2px solid #0a6cf1;
+    border-radius: 20px;
+    padding: 15px;
+    text-align: center;
+    color: #fff;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+    backdrop-filter: blur(6px);
+}
+
+/* Imagen perfecta - mismo tamaño SIEMPRE */
+.item img {
+    width: 100%;
+    height: 170px;
+    object-fit: contain;   
+    background: #111;     
+    border-radius: 12px;
+}
+
+/* Flechas carrusel*/
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.3);
+    border: none;
+    padding: 12px 18px;
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+    border-radius: 50%;
+}
+
+.prev { left: -70px; }
+.next { right: -70px; }
+
+/* Distribución circular = 7 elementos */
+.item:nth-child(1) { transform: translate(-50%, -50%) rotateY(0deg) translateZ(350px); }
+.item:nth-child(2) { transform: translate(-50%, -50%) rotateY(51.428deg) translateZ(350px); }
+.item:nth-child(3) { transform: translate(-50%, -50%) rotateY(102.856deg) translateZ(350px); }
+.item:nth-child(4) { transform: translate(-50%, -50%) rotateY(154.284deg) translateZ(350px); }
+.item:nth-child(5) { transform: translate(-50%, -50%) rotateY(205.712deg) translateZ(350px); }
+.item:nth-child(6) { transform: translate(-50%, -50%) rotateY(257.14deg) translateZ(350px); }
+.item:nth-child(7) { transform: translate(-50%, -50%) rotateY(308.568deg) translateZ(350px); }
+/*TERMINA EL CARRUSEL*/
+
+/*empieza footer*/
+.footer {
+    width: 100%;
+    padding: 20px 40px; 
+    background: rgba(0, 0, 0, 0.5); 
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    backdrop-filter: blur(6px);
+    border-top: 2px solid #0a6cf1;
+    box-sizing: border-box;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between; /* distribuye secciones */
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1400px; /* un poco más grande */
+    margin: 0 auto;
+    width: 100%;
+}
+
+.footer-section {
+    flex: 1 1 300px; /* se adapta según tamaño de pantalla */
+    min-width: 250px;
+}
+
+.footer-section h3 {
+    margin-bottom: 10px;
+    color: #0a6cf1;
+    font-size: 18px;
+}
+
+.footer-section p {
+    margin: 0;
+    color: #fff;
+    line-height: 1.5;
+    text-align: center;
+}
+
+.footer-icons {
+    display: flex;
+    justify-content: center; /* o center si querés centrar */
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.footer-icons a {
+    font-size: 22px;
+    color: white;
+    transition: 0.3s;
+}
+
+.footer-icons a:hover {
+    color: #0a6cf1;
+}
+
+.footer-bottom {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 10px;
+    font-size: 14px;
+    border-top: 1px solid rgba(255,255,255,0.2);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 15px;
+    }
+
+    .footer-icons {
+        justify-content: center;
+    }
+
+    .footer-icons a {
+        font-size: 26px;
+    }
+}
+/*termina footer*/
